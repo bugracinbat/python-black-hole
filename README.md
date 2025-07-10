@@ -1,6 +1,6 @@
-# Black Hole Simulation
+# Black Hole Simulation with Dust Physics
 
-A realistic black hole simulation with gravitational physics, particle dynamics, and stunning visualizations using Python.
+A realistic black hole simulation featuring gravitational physics, particle dynamics, dust clouds, and stunning visualizations using Python.
 
 ## Screenshot
 
@@ -21,6 +21,8 @@ _The simulation showing gravitational field lines, particle trajectories, event 
 
 - Gravitational field contours
 - Particle trails with gradient effects
+- Dynamic dust particle clouds
+- Temperature-based dust coloring
 - Real-time statistics display
 - Accretion disk visualization
 - Color-coded particles
@@ -28,6 +30,9 @@ _The simulation showing gravitational field lines, particle trajectories, event 
 ⚡ **Interactive Elements**
 
 - Multiple particle systems (orbital, random, binary)
+- Dynamic dust generation and physics
+- Particle collisions and interactions
+- Stellar wind effects
 - Real-time animation
 - Performance optimized rendering
 
@@ -60,8 +65,10 @@ python3 run_simulation.py
 - **Orange circle**: Event horizon (point of no return)
 - **Gold rings**: Accretion disk effect
 - **Colored particles**: Various masses and velocities
+- **Dust clouds**: Small particles with temperature-based colors
 - **Gradient trails**: Particle path history
 - **Statistics panel**: Real-time simulation data
+- **Dynamic effects**: Stellar wind, collisions, dust capture
 
 ## Physics Explained
 
@@ -76,6 +83,9 @@ python3 run_simulation.py
 - **Orbital Particles**: Start in semi-stable orbits around the black hole
 - **Random Particles**: Enter from simulation boundaries with various trajectories
 - **Binary System**: Two particles orbiting each other while approaching the black hole
+- **Dust Particles**: Small particles forming accretion disk and stellar wind
+- **Particle Interactions**: Collisions create dust and exchange momentum
+- **Dust Capture**: Larger particles can capture nearby dust and grow
 
 ## Technical Details
 
@@ -108,6 +118,10 @@ This simulation demonstrates:
 - Orbital mechanics
 - Gravitational interactions
 - N-body physics simulations
+- Dust cloud dynamics
+- Accretion disk formation
+- Particle collision physics
+- Temperature effects
 - Scientific visualization techniques
 
 ## Requirements

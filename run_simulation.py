@@ -3,6 +3,7 @@
 from black_hole import BlackHoleSimulation, BlackHoleVisualizer
 import random
 import math
+import numpy as np
 
 def create_orbital_particles(simulation, num_particles=8):
     """Create particles in stable-ish orbits around the black hole"""
@@ -92,28 +93,48 @@ def create_binary_system(simulation):
     simulation.add_particle(x2, y2, vx2 + toward_bh_x, vy2 + toward_bh_y, 0.8)
 
 def main():
-    print("\n🌌 Enhanced Black Hole Simulation 🌌")
-    print("="*50)
+    print("\n🌌 Enhanced Black Hole Simulation with Dust Physics 🌌")
+    print("="*60)
     print("Features:")
     print("• Gravitational field visualization (cyan contours)")
     print("• Photon sphere (red dashed circle)")
     print("• Event horizon (orange circle)")
     print("• Accretion disk rings (gold)")
     print("• Particle trails with gradient effects")
+    print("• Dynamic dust particle system")
+    print("• Stellar wind effects")
+    print("• Particle collisions and interactions")
+    print("• Temperature-based dust coloring")
     print("• Real-time statistics display")
     print("\nControls:")
     print("• Close the window to stop")
-    print("• Watch particles spiral into the black hole!")
-    print("="*50)
+    print("• Watch particles and dust spiral into the black hole!")
+    print("="*60)
     
     simulation = BlackHoleSimulation(width=100, height=100)
     
     # Create different types of particle systems
-    create_orbital_particles(simulation, num_particles=6)
-    create_random_particles(simulation, num_particles=4)
+    create_orbital_particles(simulation, num_particles=5)
+    create_random_particles(simulation, num_particles=3)
     create_binary_system(simulation)
     
+    # Add some initial dust for immediate visual effect
+    bh_x, bh_y = simulation.black_hole.x, simulation.black_hole.y
+    for i in range(50):
+        angle = np.random.uniform(0, 2 * math.pi)
+        distance = np.random.uniform(10, 40)
+        dust_x = bh_x + distance * math.cos(angle)
+        dust_y = bh_y + distance * math.sin(angle)
+        
+        # Random initial velocity
+        dust_vx = np.random.uniform(-1, 1)
+        dust_vy = np.random.uniform(-1, 1)
+        
+        temp = 1.0 + np.random.exponential(0.5)
+        simulation.add_dust_particle(dust_x, dust_y, dust_vx, dust_vy, temperature=temp)
+    
     print(f"\nInitialized {len(simulation.particles)} particles")
+    print(f"Initial dust particles: {len(simulation.dust_particles)}")
     print("Starting visualization...\n")
     
     visualizer = BlackHoleVisualizer(simulation)
